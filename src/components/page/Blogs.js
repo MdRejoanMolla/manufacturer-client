@@ -2,8 +2,31 @@ import React from 'react';
 
 const Blogs = () => {
       return (
-            <div>
-                  <p>blog page</p>
+            <div className="">
+                  <div className="">
+                        <p>14.1-</p>
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
+                  <div className="">
+
+                  </div>
             </div>
       );
 };

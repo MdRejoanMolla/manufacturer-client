@@ -7,7 +7,7 @@ const Header = () => {
             <li><Link to="tools">Tools</Link></li>
             <li><Link to="review">Reviews</Link></li>
             <li><Link to="portfolio">My Portfolio</Link></li>
-            <li><Link to="blog">Blogs</Link></li>
+            <li><Link to="blogs">Blogs</Link></li>
             <li><Link to="about">About Us</Link></li>
       </>
       return (
@@ -21,7 +21,7 @@ const Header = () => {
                                     {menuItem}
                               </ul>
                         </div>
-                        <Link to='/' class=" text-violet-600 font-bold normal-case text-2xl ">BICYLE HAND</Link>
+                        <Link to='/' className=" text-violet-600 font-bold normal-case text-2xl ">BICYLE HAND</Link>
                   </div>
                   <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
