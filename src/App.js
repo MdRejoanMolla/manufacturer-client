@@ -8,7 +8,7 @@ import Footer from './components/Share/Footer';
 
 function App() {
       return (
-            <div className="App">
+            <div className='max-w-7xl mx-auto px-12'>
                   <Header></Header>
                   <Routes>
                         <Route path="/" element={<Home />}>
