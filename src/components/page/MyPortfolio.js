@@ -7,8 +7,8 @@ const MyPortfolio = () => {
                   <p>EMil : mollamdrejoan@gmail.com</p>
                   <p>Educational Background : Persuing BSc at CHEMISTRY(2ND YEAR) National college</p>
                   <p>Add Skills</p>
-                  <div class="overflow-x-auto">
-                        <table class="table w-full">
+                  <div className="overflow-x-auto">
+                        <table className="table w-full">
                               <thead>
                                     <tr>
                                           <th></th>

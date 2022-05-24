@@ -1,0 +1,56 @@
+[
+      {
+            "id": "1",
+            "name": " Chain Cleaner",
+            "shortdescription": "Plastic Mountain Bike Chain Cleaner Scrubber Brushes Bicycle Repair Tools Bicycle Accessories",
+            "price": "250",
+            "available": "12000",
+            "minOrder": "150",
+            "img": "https://i.ibb.co/sJr99Kp/CHAIN.jpg"
+      },
+      {
+            "id": "2",
+            "name": "bicycle rear",
+            "shortdescription": "Hollow iron bicycle rear load - adjustable mountain bike hollow bike rear rack hanger",
+            "price": "350",
+            "available": "12500",
+            "minOrder": "150",
+            "img": "https://i.ibb.co/2t6SHm2/REAR-1.jpg"
+      },
+      {
+            "id": "3",
+            "name": " Stand ",
+            "shortdescription": "Steel MTB Road Mountain Cycling Adjustable Side Leg Metal Bike Stand Kick Stand For Bicycle Kickstand Bicycle Accessories",
+            "price": "200",
+            "available": "8050",
+            "minOrder": "120",
+            "img": "https://i.ibb.co/nC9c4Qf/STAND-1.jpg"
+      },
+      {
+            "id": "4",
+            "name": "Seat",
+            "shortdescription": "Wide Big Comfortable Bike Seat Bicycle Saddle PU Leather Bicycle Bike Seat with Memory foam pad",
+            "price": "230",
+            "available": "15500",
+            "minOrder": "150",
+            "img": "https://i.ibb.co/1JpwW2Q/SEAT-1.jpg"
+      },
+      {
+            "id": "5",
+            "name": "Bicycle Pedals",
+            "shortdescription": "Mountain Bike Bicycle Pedals Cycling Ultralight Aluminium Alloy Bearings MTB Pedals Bike Pedals Flat BMX",
+            "price": "150",
+            "available": "15000",
+            "minOrder": "75",
+            "img": "https://i.ibb.co/CWH4FVZ/PADEL-1.jpg"
+      },
+      {
+            "id": "6",
+            "name": "Freewheel",
+            "shortdescription": "BOLANY MTB Bicycle 12speed freewheel 11-52T Mountain bike flywheel cassette bike parts",
+            "price": "500",
+            "available": "9000",
+            "minOrder": "50",
+            "img": "https://i.ibb.co/f1jmYmn/FREE-1.jpg"
+      }
+]

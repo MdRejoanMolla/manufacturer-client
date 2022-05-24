@@ -3,10 +3,10 @@ import React from 'react';
 const BusinessSection = () => {
       return (
             <div className=' shadow-xl mb-4'>
-                  <p className='text-green-500 text-center text-3xl font-bold '>MILLIONS BUSINESS TRUST US</p>
+                  <p className='text-4xl font-bold text-orange-500 text-center '>MILLIONS BUSINESS TRUST US</p>
                   <p className=' text-center'>TRY TO UNDERSTAND USER EXPECTATION</p>
 
-                  <div className="flex flex-row mt-4">
+                  <div className="flex flex-row mt-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                         <div className=" m-auto">
                               <img src="https://i.ibb.co/60S5pWL/flag-1381-979195-1.png" alt="" />
                               <p className='font-bold'>50+</p>

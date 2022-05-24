@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../Loading';
 
@@ -11,13 +11,13 @@ const Register = () => {
             handleSubmit,
             formState: { errors },
       } = useForm();
-      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+      const [signInWithGoogle, , gLoading, gError] = useSignInWithGoogle(auth, { sendEmailVerification: true });
       const [
             createUserWithEmailAndPassword,
-            user,
+            ,
             loading,
             error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -32,10 +32,11 @@ const Register = () => {
             return <Loading></Loading>
       }
 
+
       const onSubmit = async (data) => {
             await createUserWithEmailAndPassword(data.email, data.password);
             await updateProfile({ displayName: data.name });
-            Navigate('/');
+            navigate('/');
       };
       return (
             <div className='flex h-screen justify-center items-center'>

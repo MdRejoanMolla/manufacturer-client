@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
 
 const Login = () => {
+      const emailRef = useRef('');
       const { register, formState: { errors }, handleSubmit } = useForm();
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
@@ -19,6 +21,8 @@ const Login = () => {
             loading,
             error,
       ] = useSignInWithEmailAndPassword(auth);
+      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth, { sendEmailVerification: true });
+
 
       useEffect(() => {
             if (user || gUser) {
@@ -28,9 +32,21 @@ const Login = () => {
       if (error || gError) {
             signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
       }
-      if (gLoading || loading) {
+      if (gLoading || loading || sending) {
             return <Loading></Loading>
       }
+
+      const resetPassword = async () => {
+            const email = emailRef.current.value;
+            if (email) {
+                  await sendPasswordResetEmail(email);
+                  toast.success('Sent email');
+            }
+            else {
+                  toast('please enter your email address')
+            }
+      }
+
       const onSubmit = data => {
             signInWithEmailAndPassword(data.email, data.password);
       }
@@ -42,11 +58,12 @@ const Login = () => {
 
                               <form onSubmit={handleSubmit(onSubmit)}>
 
-                                    <div className="form-control w-full max-w-xs">
+                                    <div ref={emailRef} className="form-control w-full max-w-xs">
                                           <label className="label">
                                                 <span className="label-text">Email</span>
                                           </label>
                                           <input
+
                                                 type="email"
                                                 placeholder="Your Email"
                                                 className="input input-bordered w-full max-w-xs"
@@ -96,6 +113,8 @@ const Login = () => {
                               </form>
                               <p><small>New to Bicycle Hand ?<Link
                                     className='text-primary' to="/register">Please Create New Account</Link></small></p>
+
+                              <p className='mt-5'>Forget Password ? <button className=' btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
                               <div className="divider">OR</div>
                               <button
                                     onClick={() => signInWithGoogle()}
