@@ -1,4 +1,6 @@
 import React from 'react';
+import Company from '../page/Company';
+import RelatedProduct from '../page/RelatedProduct';
 import Banner from './Banner';
 import BusinessSection from './BusinessSection';
 
@@ -7,6 +9,9 @@ const Home = () => {
             <div>
                   <Banner></Banner>
                   <BusinessSection></BusinessSection>
+                  <RelatedProduct></RelatedProduct>
+                  <Company></Company>
+
             </div>
       );
 };

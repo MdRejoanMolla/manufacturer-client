@@ -7,6 +7,8 @@ import Footer from './components/Share/Footer';
 import Blogs from './components/page/Blogs.js';
 import NotFound from './components/page/NotFound';
 import About from './components/page/About';
+import MyPortfolio from './components/page/MyPortfolio';
+import Login from './components/page/Login/Login';
 
 function App() {
       return (
@@ -16,6 +18,8 @@ function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="blogs" element={<Blogs />} />
                         <Route path="about" element={<About />} />
+                        <Route path="myPortfolio" element={<MyPortfolio></MyPortfolio>} />
+                        <Route path="login" element={<Login />} />
                         <Route path="*" element={<NotFound />} />
                   </Routes>
                   <Footer></Footer>
