@@ -9,6 +9,7 @@ import NotFound from './components/page/NotFound';
 import About from './components/page/About';
 import MyPortfolio from './components/page/MyPortfolio';
 import Login from './components/page/Login/Login';
+import Register from './components/page/Login/Register';
 
 function App() {
       return (
@@ -20,6 +21,7 @@ function App() {
                         <Route path="about" element={<About />} />
                         <Route path="myPortfolio" element={<MyPortfolio></MyPortfolio>} />
                         <Route path="login" element={<Login />} />
+                        <Route path="register" element={<Register />} />
                         <Route path="*" element={<NotFound />} />
                   </Routes>
                   <Footer></Footer>

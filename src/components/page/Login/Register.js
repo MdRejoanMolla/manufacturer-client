@@ -1,46 +1,68 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
 
-const Login = () => {
-      const { register, formState: { errors }, handleSubmit } = useForm();
+const Register = () => {
+      const {
+            register,
+            handleSubmit,
+            formState: { errors },
+      } = useForm();
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-
-      let signInError;
-      const navigate = useNavigate();
-      const location = useLocation();
-      let from = location.state?.from?.pathname || "/";
       const [
-            signInWithEmailAndPassword,
+            createUserWithEmailAndPassword,
             user,
             loading,
             error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-      useEffect(() => {
-            if (user || gUser) {
-                  navigate(from, { replace: true });
-            }
-      }, [user, gUser, from, navigate])
-      if (error || gError) {
-            signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+      const navigate = useNavigate();
+
+      let signInError;
+
+      if (error || gError || updateError) {
+            signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
       }
-      if (gLoading || loading) {
+      if (loading || gLoading || updating) {
             return <Loading></Loading>
       }
-      const onSubmit = data => {
-            signInWithEmailAndPassword(data.email, data.password);
-      }
+
+      const onSubmit = async (data) => {
+            await createUserWithEmailAndPassword(data.email, data.password);
+            await updateProfile({ displayName: data.name });
+            Navigate('/');
+      };
       return (
-            <div className='flex flex h-screen justify-center items-center'>
+            <div className='flex h-screen justify-center items-center'>
                   <div className="card w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
-                              <h2 className="text-center text-2xl font-bold">Login</h2>
-
+                              <h2 className="text-center text-2xl font-bold">Register</h2>
                               <form onSubmit={handleSubmit(onSubmit)}>
+
+                                    <div className="form-control w-full max-w-xs">
+                                          <label className="label">
+                                                <span className="label-text">Name</span>
+                                          </label>
+                                          <input
+                                                type="text"
+                                                placeholder="Your Name"
+                                                className="input input-bordered w-full max-w-xs"
+                                                {...register("name", {
+                                                      required: {
+                                                            value: true,
+                                                            message: 'Name is Required'
+                                                      }
+                                                })}
+                                          />
+                                          <label className="label">
+                                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                          </label>
+                                    </div>
 
                                     <div className="form-control w-full max-w-xs">
                                           <label className="label">
@@ -68,7 +90,7 @@ const Login = () => {
                                     </div>
                                     <div className="form-control w-full max-w-xs">
                                           <label className="label">
-                                                <span className="label-text"> Password</span>
+                                                <span className="label-text">Password</span>
                                           </label>
                                           <input
                                                 type="password"
@@ -92,10 +114,9 @@ const Login = () => {
                                     </div>
 
                                     {signInError}
-                                    <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                                    <input className='btn w-full max-w-xs text-white' type="submit" value="Register" />
                               </form>
-                              <p><small>New to Bicycle Hand ?<Link
-                                    className='text-primary' to="/register">Please Create New Account</Link></small></p>
+                              <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
                               <div className="divider">OR</div>
                               <button
                                     onClick={() => signInWithGoogle()}
@@ -103,9 +124,8 @@ const Login = () => {
                               >Continue with Google</button>
                         </div>
                   </div>
-            </div>
-
+            </div >
       );
 };
 
-export default Login;
+export default Register;
