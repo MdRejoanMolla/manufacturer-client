@@ -23,7 +23,7 @@ const Tools = ({ data }) => {
 
                               < p > Available:{available}</p>
                               <p>Minimun Order:{minOrder}</p>
-                              <p>Available:{available}</p>
+
                               <div className="card-actions">
                                     <button className="btn btn-primary" onClick={() => navigateToOrderDetails(_id)}>Buy Now</button>
                               </div>
