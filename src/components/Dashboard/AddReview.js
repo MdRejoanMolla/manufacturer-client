@@ -1,54 +1,55 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const AddReview = () => {
-
+      let { register, handleSubmit } = useForm();
       const onSubmit = data => {
-            const url = `https://hidden-mountain-97145.herokuapp.com/manageItem`;
+            const url = `http://localhost:5000/addReview`;
             fetch(url, {
                   method: "post",
                   headers: {
                         "content-type": "application/json"
+
                   },
                   body: JSON.stringify(data),
             })
                   .then(res => res.json())
                   .then(result => {
-                        toast("Item add", result)
-
+                        toast.success("review add", result)
+                        let register = []
                   })
 
 
       };
       return (
-            <div>
-                  <h2 className='text-3xl font-bold'>Please add Review</h2>
-                  <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                              <div className="form-control">
+            <div className='card max-w-full bg-base-100 shadow-xl'>
+                  <div className="card-body">
+                        <h2 className='text-center text-4xl font-bold'>Please add Item</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                              <div className="form-control w-full max-w-xs">
                                     <label className="label">
-                                          <span className="label-text">Name</span>
+                                          <span className="label-text text-xl">Name</span>
                                     </label>
-                                    <input type="text" placeholder="Name" className="input input-bordered" />
-                              </div>
-                              <div className="form-control">
-                                    <label className="label">
-                                          <span className="label-text">Raring</span>
-                                    </label>
-                                    <input type="number" placeholder="Raring" className="input input-bordered" />
-                              </div>
-                              <div className="form-control">
-                                    <label className="label">
-                                          <span className="label-text">Description</span>
-                                    </label>
-                                    <input type="text" placeholder="Description" className="input input-bordered" />
-                              </div>
+                                    <input className="input input-bordered w-full max-w-xs text-xl" placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
 
-                              <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Add Reviewed</button>
                               </div>
-                        </div>
+                              <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                          <span className="label-text text-xl">Rating</span>
+                                    </label>
+                                    <input className="input input-bordered w-full max-w-xs text-xl" placeholder='Rating' {...register("rating", { required: true })} />
+
+                              </div>
+                              <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                          <span className="label-text text-xl">Description</span>
+                                    </label>
+                                    <input className="input input-bordered w-full max-w-xs text-xl" placeholder='Description' {...register("shortdescription", { required: true, maxLength: 20 })} />
+
+                              </div>
+                              <input className='btn bg-primary mt-3 w-full max-w-xs text-white' type="submit" value="Add Reviewed" />
+                        </form>
                   </div>
             </div>
       );

@@ -17,6 +17,7 @@ import Order from './components/page/Order';
 import MyProfile from './components/Dashboard/MyProfile';
 import AddReview from './components/Dashboard/AddReview';
 import MyOrder from './components/Dashboard/MyOrder';
+import Users from './components/Dashboard/Users';
 
 function App() {
       return (
@@ -35,6 +36,7 @@ function App() {
                               <Route path="myProfile" element={<MyProfile />}></Route>
                               <Route path="myOrder" element={<MyOrder />}></Route>
                               <Route path="addReview" element={<AddReview />}></Route>
+                              <Route path="users" element={<Users />}></Route>
 
                               {/* <Route path="payment/:id" element={<Payment></Payment>}></Route>
                               <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>

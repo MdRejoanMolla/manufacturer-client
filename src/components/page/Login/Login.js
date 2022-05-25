@@ -25,11 +25,13 @@ const Login = () => {
       const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth, { sendEmailVerification: true });
       const [token] = useToken(user || gUser);
 
-      // useEffect(() => {
-      //       if (token) {
-      //             navigate(from, { replace: true });
-      //       }
-      // }, [token, from, navigate])
+
+      useEffect(() => {
+            if (token) {
+                  navigate(from, { replace: true });
+            }
+      }, [token, from, navigate])
+
       if (error || gError) {
             signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
       }

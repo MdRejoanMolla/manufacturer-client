@@ -10,7 +10,7 @@ const Order = () => {
             fetch(url)
                   .then(res => res.json())
                   .then(data => setOrder(data))
-      }, [])
+      }, [orderId])
 
       return (
             <div>

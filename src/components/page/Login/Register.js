@@ -36,7 +36,7 @@ const Register = () => {
       const onSubmit = async (data) => {
             await createUserWithEmailAndPassword(data.email, data.password);
             await updateProfile({ displayName: data.name });
-            navigate('/');
+            navigate('/login');
       };
       return (
             <div className='flex h-screen justify-center items-center'>
