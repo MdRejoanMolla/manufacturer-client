@@ -5,6 +5,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
+import useToken from '../../hook/useToken';
 
 const Login = () => {
       const emailRef = useRef('');
@@ -22,13 +23,13 @@ const Login = () => {
             error,
       ] = useSignInWithEmailAndPassword(auth);
       const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth, { sendEmailVerification: true });
+      const [token] = useToken(user || gUser);
 
-
-      useEffect(() => {
-            if (user || gUser) {
-                  navigate(from, { replace: true });
-            }
-      }, [user, gUser, from, navigate])
+      // useEffect(() => {
+      //       if (token) {
+      //             navigate(from, { replace: true });
+      //       }
+      // }, [token, from, navigate])
       if (error || gError) {
             signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
       }
@@ -40,10 +41,10 @@ const Login = () => {
             const email = emailRef.current.value;
             if (email) {
                   await sendPasswordResetEmail(email);
-                  toast.success('Sent email');
+                  toast.success('Sent email', email);
             }
             else {
-                  toast('please enter your email address')
+                  toast.error('please enter your email address')
             }
       }
 
@@ -58,12 +59,12 @@ const Login = () => {
 
                               <form onSubmit={handleSubmit(onSubmit)}>
 
-                                    <div ref={emailRef} className="form-control w-full max-w-xs">
+                                    <div className="form-control w-full max-w-xs">
                                           <label className="label">
                                                 <span className="label-text">Email</span>
                                           </label>
                                           <input
-
+                                                ref={emailRef}
                                                 type="email"
                                                 placeholder="Your Email"
                                                 className="input input-bordered w-full max-w-xs"
