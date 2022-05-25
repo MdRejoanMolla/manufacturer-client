@@ -1,6 +1,5 @@
 
 import { Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import './App.css'
 import Header from './components/Share/Header';
 import Home from './components/Home/Home';
@@ -50,7 +49,7 @@ function App() {
                         <Route path="register" element={<Register />} />
                         <Route path="*" element={<NotFound />} />
                   </Routes>
-                  <ToastContainer />
+
 
             </div>
       );

@@ -1,4 +1,6 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+
 import Company from '../page/Company';
 import RelatedProduct from '../page/RelatedProduct';
 import Reviews from '../page/Reviews';
@@ -17,7 +19,7 @@ const Home = () => {
                   <RelatedProduct></RelatedProduct>
                   <Company></Company>
                   <Footer></Footer>
-
+                  <ToastContainer></ToastContainer>
             </div>
       );
 };

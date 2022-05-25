@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { ToastContainer } from 'react-toastify';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 // import useAdmin from '../../hooks/useAdmin';
@@ -31,6 +32,7 @@ const Dashboard = () => {
                         </ul>
 
                   </div>
+                  <ToastContainer></ToastContainer>
             </div>
       );
 };
