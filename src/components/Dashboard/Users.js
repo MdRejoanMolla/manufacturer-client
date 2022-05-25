@@ -1,5 +1,6 @@
 import React from 'react';
 import Loading from '../page/Loading';
+import { ToastContainer } from 'react-toastify';
 import { useQuery } from 'react-query';
 import UserRow from './UseRow';
 
@@ -40,6 +41,7 @@ const Users = () => {
                               </tbody>
                         </table>
                   </div>
+                  <ToastContainer></ToastContainer>
             </div>
       );
 };

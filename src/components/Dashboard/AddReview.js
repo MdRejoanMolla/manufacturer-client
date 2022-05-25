@@ -26,7 +26,7 @@ const AddReview = () => {
             <div className='card max-w-full bg-base-100 shadow-xl'>
                   <div className="card-body">
                         <h2 className='text-center text-4xl font-bold'>Please add Item</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form className='m-auto' onSubmit={handleSubmit(onSubmit)}>
                               <div className="form-control w-full max-w-xs">
                                     <label className="label">
                                           <span className="label-text text-xl">Name</span>
