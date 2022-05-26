@@ -1,5 +1,20 @@
 # Getting Started with Create React App
 
+# name - BICYCLE HAND
+
+# [live site](https://bicycle-hand.web.app/)
+- USE TAILWIND CSS
+- DAISY UI
+- MONGODB
+- NODE JS
+- EXPRESS JS
+- REACT QUERY 
+- ETC
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

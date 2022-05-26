@@ -33,7 +33,7 @@ const MyProfile = () => {
 
       };
       return (
-            <div className='flex m-10 bg-yellow-500'>
+            <div className='flex m-10 bg-yellow-500 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
                   <div className="mr-8">
                         <p className='text-3xl font-bold
                   m-2'>NAME:-{(gUser || user).displayName}</p>
