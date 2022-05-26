@@ -66,7 +66,9 @@ const AddProduct = () => {
                                     <label className="label">
                                           <span className="label-text text-xl">Image</span>
                                     </label>
-                                    <input className="input input-bordered w-full max-w-xs text-xl" placeholder='Image' {...register("img", { required: true, maxLength: 20 })} />
+
+                                    <input className="input input-bordered w-full max-w-xs text-xl" placeholder='Photo' {...register("img", { required: true })} />
+
 
                               </div>
                               <input className='btn bg-primary mt-3 w-full max-w-xs text-white' type="submit" value="Add Product" />

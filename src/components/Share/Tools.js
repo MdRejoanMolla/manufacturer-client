@@ -29,7 +29,7 @@ const Tools = ({ data }) => {
                               </div>
                         </div>
                   </div>
-            </div>
+            </div >
       );
 };
 

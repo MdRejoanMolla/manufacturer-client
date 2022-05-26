@@ -4,7 +4,7 @@ import Tools from '../Share/Tools';
 const Parts = () => {
       const [tools, setTools] = useState([]);
       useEffect(() => {
-            fetch("tools.json")
+            fetch("http://localhost:5000/tools")
                   .then(res => res.json())
                   .then(data => setTools(data))
       }, [])
@@ -14,7 +14,7 @@ const Parts = () => {
                   <p className="text-5xl font-bold text-orange-500 text-center">OUR PRODUCTS</p>
                   <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-4 mb-4'>
                         {
-                              tools.map(data => <Tools key={data.id} data={data}></Tools>)
+                              tools.map(data => <Tools key={data._id} data={data}></Tools>)
                         }
                   </div>
             </div>

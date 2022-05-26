@@ -14,8 +14,9 @@ const Order = () => {
 
       return (
             <div>
-                  <p>order{order.name}</p>
+
             </div>
+
       );
 };
 
