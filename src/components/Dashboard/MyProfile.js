@@ -3,9 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 const MyProfile = () => {
-
       const [user, gUser] = useAuthState(auth);
       let { register, handleSubmit } = useForm();
       const [info, setInfo] = useState([]);
@@ -28,13 +28,12 @@ const MyProfile = () => {
                   .then(res => res.json())
                   .then(result => {
                         toast.success("review add", result)
-                        let register = {}
                   })
 
 
       };
       return (
-            <div className='flex m-10'>
+            <div className='flex m-10 bg-yellow-500'>
                   <div className="mr-8">
                         <p className='text-3xl font-bold
                   m-2'>NAME:-{(gUser || user).displayName}</p>
@@ -61,6 +60,20 @@ const MyProfile = () => {
                         <form className=' ' onSubmit={handleSubmit(onSubmit)}>
 
 
+                              <div className="form-control  w-full max-w-xs">
+                                    <label className="label">
+                                          <span className="label-text text-xl">Name</span>
+                                    </label>
+                                    <input className="input input-bordered w-full max-w-xs text-xl" value={user.displayName} />
+
+                              </div>
+                              <div className="form-control  w-full max-w-xs">
+                                    <label className="label">
+                                          <span className="label-text text-xl">Email</span>
+                                    </label>
+                                    <input className="input input-bordered w-full max-w-xs text-xl" value={user.email} />
+
+                              </div>
                               <div className="form-control  w-full max-w-xs">
                                     <label className="label">
                                           <span className="label-text text-xl">Education</span>

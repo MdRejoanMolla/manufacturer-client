@@ -12,13 +12,14 @@ import Register from './components/page/Login/Register';
 import Parts from './components/page/Parts';
 import RequireAuth from './components/page/Login/RequireAuth';
 import Dashboard from './components/Dashboard/Dashboard';
-import Order from './components/page/Order';
+import Order from './components/page/Modal';
 import MyProfile from './components/Dashboard/MyProfile';
 import AddReview from './components/Dashboard/AddReview';
 import MyOrder from './components/Dashboard/MyOrder';
 import Users from './components/Dashboard/Users';
 import RequireAdmin from './components/page/Login/RequireAdmin';
 import AddProduct from './components/Dashboard/AddProduct';
+import OrderParts from './components/Share/OrderParts';
 
 function App() {
       return (
@@ -29,7 +30,7 @@ function App() {
                         <Route path="blogs" element={<Blogs />} />
                         <Route path="tools" element={<Parts />} />
                         <Route path="about" element={<About />} />
-                        <Route path="/tools/:Id" element={<RequireAuth><Order /></RequireAuth>} />
+                        <Route path="/tool/:toolId" element={<RequireAuth><OrderParts /></RequireAuth>} />
                         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
 
 

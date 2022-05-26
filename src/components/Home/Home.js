@@ -11,7 +11,7 @@ import BusinessSection from './BusinessSection';
 
 const Home = () => {
       return (
-            <div>
+            <div className='slate-50'>
                   <Banner></Banner>
                   <ToolParts></ToolParts>
                   <BusinessSection></BusinessSection>

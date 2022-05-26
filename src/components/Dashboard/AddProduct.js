@@ -23,7 +23,7 @@ const AddProduct = () => {
 
       };
       return (
-            <div className='card max-w-full bg-base-100 shadow-xl'>
+            <div className='card max-w-full bg-base-100 shadow-xl bg-yellow-500'>
                   <div className="card-body">
                         <h2 className='text-center text-4xl font-bold'>Please add Item</h2>
                         <form className='m-auto' onSubmit={handleSubmit(onSubmit)}>
