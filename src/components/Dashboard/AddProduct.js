@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const AddProduct = () => {
       let { register, handleSubmit } = useForm();
       const onSubmit = data => {
-            const url = `http://localhost:5000/addProduct`;
+            const url = `https://infinite-ocean-96242.herokuapp.com/addProduct`;
             fetch(url, {
                   method: "post",
                   headers: {
@@ -23,7 +23,7 @@ const AddProduct = () => {
 
       };
       return (
-            <div className='card max-w-full bg-base-100 shadow-xl bg-yellow-500'>
+            <div className='card max-w-full bg-base-100 shadow-xl bg-yellow-500 '>
                   <div className="card-body">
                         <h2 className='text-center text-4xl font-bold'>Please add Item</h2>
                         <form className='m-auto' onSubmit={handleSubmit(onSubmit)}>
