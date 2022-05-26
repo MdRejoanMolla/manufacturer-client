@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const MyProfile = () => {
+
       const [user, gUser] = useAuthState(auth);
       let { register, handleSubmit } = useForm();
+      const [info, setInfo] = useState([]);
+
+      useEffect(() => {
+            fetch(`http://localhost:5000/information`)
+                  .then(res => res.json())
+                  .then(data => setInfo(data))
+      }, [])
       const onSubmit = data => {
-            const url = `http://localhost:5000/addProduct`;
+            const url = `http://localhost:5000/information`;
             fetch(url, {
                   method: "post",
                   headers: {
@@ -26,13 +34,32 @@ const MyProfile = () => {
 
       };
       return (
-            <div className=' m-10'>
-                  <p className='text-3xl font-bold
+            <div className='flex m-10'>
+                  <div className="mr-8">
+                        <p className='text-3xl font-bold
                   m-2'>NAME:-{(gUser || user).displayName}</p>
-                  <p className='text-3xl font-bold
+                        <p className='text-3xl font-bold
                   m-2'>EMAIL:-{(gUser || user).email}</p>
+                        {
+                              info.map((data, index) =>
+                                    <h1 key={data.index + 1}>
+                                          <p className='text-3xl font-bold
+                  m-2'>Education:-{data.Education}</p>
+                                          <p className='text-3xl font-bold
+                  m-2'>Location:-{data.Location}</p>
+                                          <p className='text-3xl font-bold
+                  m-2'>Phone:-{data.Phone}</p>
+                                    </h1>
+
+                              )
+
+                        }
+                  </div>
                   <div className="">
+                        <p className='text-3xl font-bold
+                  '>ADD INFORMATION</p>
                         <form className=' ' onSubmit={handleSubmit(onSubmit)}>
+
 
                               <div className="form-control  w-full max-w-xs">
                                     <label className="label">

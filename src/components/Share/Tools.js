@@ -1,13 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const Tools = ({ data }) => {
+const Tools = ({ data, setOrder }) => {
       const { img, _id, name, shortdescription, price, available, minOrder } = data;
-      const navigate = useNavigate();
-
-      const navigateToOrderDetails = id => {
-            navigate(`/tools/${id}`);
-      }
 
       return (
             <div>
@@ -25,7 +19,8 @@ const Tools = ({ data }) => {
                               <p>Minimun Order:{minOrder}</p>
 
                               <div className="card-actions">
-                                    <button className="btn btn-primary" onClick={() => navigateToOrderDetails(_id)}>Buy Now</button>
+
+                                    <label htmlFor="order-modal" onClick={() => setOrder(data)} className="btn btn-primary">Buy Now</label>
                               </div>
                         </div>
                   </div>

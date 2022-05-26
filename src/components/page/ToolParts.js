@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Tools from '../Share/Tools';
+import Order from './Order';
+
 
 const ToolParts = () => {
       const [tools, setTools] = useState([]);
+      const [order, setOrder] = useState(null);
       useEffect(() => {
             fetch("http://localhost:5000/tools")
                   .then(res => res.json())
@@ -14,9 +17,10 @@ const ToolParts = () => {
                   <p className="text-5xl font-bold text-orange-500 text-center">OUR PRODUCTS</p>
                   <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-4 mb-4'>
                         {
-                              tools.map(data => <Tools key={data._id} data={data}></Tools>).slice(0, 6)
+                              tools.map(data => <Tools key={data._id} setOrder={setOrder} data={data}></Tools>).slice(0, 6)
                         }
                   </div>
+                  {order && <Order order={order}></Order>}
             </div>
       );
 };
