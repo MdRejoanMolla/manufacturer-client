@@ -9,7 +9,7 @@ const OrderParts = () => {
       const [user] = useAuthState(auth);
       let { register, handleSubmit } = useForm();
       const onSubmit = data => {
-            const url = `http://localhost:5000/information`;
+            const url = `https://infinite-ocean-96242.herokuapp.com/information`;
             fetch(url, {
                   method: "post",
                   headers: {
