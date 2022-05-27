@@ -10,7 +10,7 @@ const Reviews = () => {
             navigate('/dashboard/addReview');
       }
       useEffect(() => {
-            fetch("http://localhost:5000/addReview")
+            fetch("https://agile-ocean-51288.herokuapp.com/addReview")
                   .then(res => res.json())
                   .then(data => setReviews(data))
       }, [])

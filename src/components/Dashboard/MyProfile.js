@@ -11,12 +11,12 @@ const MyProfile = () => {
       const [info, setInfo] = useState([]);
 
       useEffect(() => {
-            fetch(`https://infinite-ocean-96242.herokuapp.com/information`)
+            fetch(`https://agile-ocean-51288.herokuapp.com/information`)
                   .then(res => res.json())
                   .then(data => setInfo(data))
       }, [])
       const onSubmit = data => {
-            const url = `https://infinite-ocean-96242.herokuapp.com/information`;
+            const url = `https://agile-ocean-51288.herokuapp.com/information`;
             fetch(url, {
                   method: "post",
                   headers: {

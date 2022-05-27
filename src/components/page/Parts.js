@@ -6,7 +6,7 @@ const Parts = () => {
       const [tools, setTools] = useState([]);
 
       useEffect(() => {
-            fetch(`https://infinite-ocean-96242.herokuapp.com/tools`)
+            fetch(`https://agile-ocean-51288.herokuapp.com/tools`)
                   .then(res => res.json())
                   .then(data => setTools(data))
       }, [])

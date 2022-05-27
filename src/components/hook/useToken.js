@@ -7,7 +7,7 @@ const useToken = user => {
             const email = user?.user?.email;
             const currentUser = { email: email };
             if (email) {
-                  fetch(`http://localhost:5000/user/${email}`, {
+                  fetch(`https://agile-ocean-51288.herokuapp.com${email}`, {
                         method: 'PUT',
                         headers: {
                               'content-type': 'application/json'

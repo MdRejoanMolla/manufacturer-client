@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const AddProduct = () => {
       let { register, handleSubmit } = useForm();
       const onSubmit = data => {
-            const url = `https://infinite-ocean-96242.herokuapp.com/addProduct`;
+            const url = `https://agile-ocean-51288.herokuapp.com/addProduct`;
             fetch(url, {
                   method: "post",
                   headers: {
