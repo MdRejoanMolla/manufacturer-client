@@ -47,6 +47,9 @@ const MyPortfolio = () => {
                               </tbody>
                         </table>
                   </div>
+                  <p className='font-bold text-xl'>LIVE SITE=https://independent-service-a45e8.web.app/</p>
+                  <p className='font-bold text-xl'>LIVE SITE=https://bike-warehouse-ceeb8.web.app/</p>
+                  <p className='font-bold text-xl'>LIVE SITE=https://keen-quokka-807717.netlify.app/</p>
             </div>
       );
 };
